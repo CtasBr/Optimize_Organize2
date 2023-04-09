@@ -10,6 +10,7 @@ a {
 
 .wrapper {
 	display: flex;
+	background: #F4F4F4;
 }
 
 .col-6 {
@@ -698,4 +699,110 @@ a {
 	padding-top: 16px;
 	text-align: center;
 	color: #DADADA;
+}
+
+
+
+.hystmodal {
+	background: rgba(51, 51, 51, 0.6);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	overflow: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	z-index: 99;
+	visibility: hidden;
+}
+.hystmodal--active{
+	visibility: visible;
+}
+.hystmodal--active .hystmodal__window{
+	transform: scale(1);
+	opacity: 1;
+}
+.hystmodal__window {
+	background: #333333;
+	width: 25%;
+	height: 70%;
+}
+.hystmodal_close {
+	position: fixed;
+	top: 3%;
+	left: 87%;
+	background: none;
+	border: none;
+}
+.hystmodal_close:hover {
+	cursor: pointer;
+}
+.hystmodal_container {
+	padding: 13%;
+}
+.hystmodal_logo {
+	width: 30%;
+	margin-left: 35%;
+}
+.hystmodal_form {
+	display: flex;
+	flex-direction: column;
+	margin-top: 8%;
+}
+.hystmodal_form legend {
+	margin-bottom: 10%;
+	text-align: center;
+	color: white;
+	font-family: 'Circe';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 140%;
+}
+.hystmodal_form_input {
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	padding: 4% 6%;
+	background: none;
+	margin-bottom: 10%;
+	color: white;
+	font-family: 'Circe';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 100%;
+}
+.hystmodal_form_bottom input {
+	max-width: 32%;
+}
+.hystmodal_form_bottom input:nth-last-of-type(1) {
+	margin-left: 10%;
+}
+.hystmodal_form_bottom {
+	display: flex;
+	flex-direction: row;
+}
+.hystmodal_form_submit {
+	margin: 5% 20% 0 20%;
+	border: none;
+	padding: 4% 6%;
+	color: white;
+	font-family: 'Circe';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 140%;
+	
+	background: #B59571;
+}
+.hystmodal_form_submit:hover {
+	cursor: pointer;
+}
+
+.hystmodal__opened {
+	overflow: hidden;
 }

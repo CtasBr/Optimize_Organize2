@@ -7,6 +7,7 @@ from .forms import *
 
 def register(request):
     if request.method == 'POST':
+        print(1)
         email = request.POST.get('email')
         pas = request.POST.get('ps')
         pas1 = request.POST.get('ps1')
@@ -37,6 +38,7 @@ def user_login(request):
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
         if form.is_valid():
+            print(1)
             user = form.get_user()
             login(request, user)
             return redirect('dashboard', 'objects')

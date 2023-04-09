@@ -1,7 +1,40 @@
-
-<form method="post">
-            {% csrf_token %}
-            {{ form.non_field.errors }}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary" style="background: #FFAB00; border-color: #FFAB00;">Записаться</button>
-</form>
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Дэшборд</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<div class="wrapper">
+    <div class="login-container">
+        <div class="login-title">Вход в личный кабинет</div>
+        <div class="row">
+            <div class="col-2">
+                <div class="company">
+                    <div class="company-title">Аврора -</div>
+                    <div class="company-text">сервис для ведения и отслеживания контрольно-надзорных мероприятий для
+                        объектов недвижимости
+                    </div>
+                </div>
+                <img class="company-img" src="img/reg.png">
+            </div>
+            <div class="col-2">
+                <div class="login-block">
+                    <form class="login-form" method="POST">
+                        {% csrf_token %}
+                        {{ form.non_field.errors }}
+                        {{ form.as_p }}
+                        <input class="submit-btn" type="submit" name="submit" value="Войти">
+                    </form>
+                    <a class="reg-btn" href="{% url 'register' %}">Зарегистрироваться</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
