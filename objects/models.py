@@ -19,7 +19,7 @@ class ObjectTable(models.Model):
     city = models.CharField(max_length=100)
     check_company = models.CharField(max_length=100)
     law = models.CharField(max_length=100)
-    photo = models.ImageField(blank=False, upload_to='photos/%Y/%m/%d/', default='')
+    photo = models.ImageField(blank=True, upload_to='photos/%Y/%m/%d/', default='')
 
 # class ObjectImage(models.Model):
 #     obj = models.ForeignKey(ObjectTable, on_delete=models.PROTECT, related_name='object_image')

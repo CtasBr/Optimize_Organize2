@@ -1,10 +1,42 @@
 import datetime
+import random
 
 from django.core.paginator import Paginator
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from tasks.models import *
 from .models import *
+
+b = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a lectus at metus aliquet consequat. Nunc leo purus, feugiat eu ante vitae, vehicula gravida turpis. Aenean eget interdum turpis. Nullam pharetra interdum dui. Proin magna arcu, fermentum at convallis non, elementum sed est. Phasellus et metus arcu. Curabitur mollis molestie imperdiet. In nec est ut tortor gravida interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut nec sagittis nunc. Nulla vitae mauris massa. Duis tristique leo id odio rhoncus laoreet. Mauris non est id quam iaculis volutpat nec nec magna. Proin in erat sed felis placerat dapibus quis eget nulla. Aenean quis nunc orci.'
+b = b.split()
+
+
+def uppender(request):
+    for i in range(19):
+        obj = ObjectTable(
+
+            address=b[random.randint(0, len(b) - 1)]
+            , administrate_county=b[random.randint(0, len(b) - 1)]
+            , cod_number=b[random.randint(0, len(b) - 1)]
+            , ind_zone=True
+            , date=b[random.randint(0, len(b) - 1)]
+            , area=b[random.randint(0, len(b) - 1)]
+            , comments=b[random.randint(0, len(b) - 1)]
+            , rev_count=11
+            , type_obj=b[random.randint(0, len(b) - 1)]
+            , state_obj=b[random.randint(0, len(b) - 1)]
+            , sqr=152
+            , own=b[random.randint(0, len(b) - 1)]
+            , actual_user=b[random.randint(0, len(b) - 1)]
+            , n_prot=b[random.randint(0, len(b) - 1)]
+            , city=b[random.randint(0, len(b) - 1)]
+            , check_company=b[random.randint(0, len(b) - 1)]
+            , law='ПП-17')
+        obj.save()
+    return redirect('dashboard', 'objects')
+
+def index(request):
+    return redirect('dashboard', 'objects')
 
 
 def dashboard(request, item='objects'):
