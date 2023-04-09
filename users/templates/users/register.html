@@ -2,19 +2,19 @@
 {% load static %}
 <html lang="ru">
 <head>
-	<meta charset="UTF-8">
-	<title>Дэшборд</title>
-	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta charset="UTF-8">
+    <title>Дэшборд</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-	<div class="wrapper">
-		<div class="reg-container">
-			<form class="hystmodal_form" method="POST">
-                {% csrf_token %}
-					<legend>Регистрация</legend>
-					<div class="form-row">
-						<div class="form-row-title">Личные данные</div>
-						<div class="col-2">
+<div class="wrapper">
+    <div class="reg-container">
+        <form class="hystmodal_form" method="POST">
+            {% csrf_token %}
+            <legend>Регистрация</legend>
+            <div class="form-row">
+                <div class="form-row-title">Личные данные</div>
+                <div class="col-2">
 							<input type="text" name="name" placeholder="Имя">
 						</div>
 						<div class="col-2">
