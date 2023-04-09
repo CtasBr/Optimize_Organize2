@@ -1,0 +1,7 @@
+
+<form method="post">
+            {% csrf_token %}
+            {{ form.non_field.errors }}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary" style="background: #FFAB00; border-color: #FFAB00;">Записаться</button>
+</form>

@@ -1,0 +1,46 @@
+{% extends 'objects/base_obj.html' %}
+{% load static %}
+
+{% block header %}
+    <div class="content-header">
+        <div class="content-title">Список объектов</div>
+        <div class="content-header-buttons">
+            <a href="{% url 'dashboard' 'objects' %}"
+               class="objects-btn btn content-header-buttons-this-page">Объекты</a>
+            <a href="{% url 'dashboard' 'tasks' %}" class="tasks-btn btn">Задачи</a>
+            <a href="{% url 'dashboard' 'stats' %}" class="stats-btn btn">Статистика</a>
+        </div>
+    </div>
+{% endblock %}
+{% block in_content %}
+    <div class="content-objects">
+        {% for i in cards %}
+            <div class="col-3">
+                <div class="card">
+                    {% if i.photo %}
+                    <img class="card-img" src="{{ i.photo.url }}">
+                    {% endif %}
+                    <div class="card-container">
+                        <div class="card-date card-date-red">{{ i.date }}</div>
+                        <div class="card-title">г. {{ i.city }} {{ i.address }}</div>
+                        <div class="card-type">
+                            <span class="card-desc-name">Тип:</span>
+                            <span class="card-desc-value">{{ i.type_obj }}</span>
+                        </div>
+                        <div class="card-state">
+                            <span class="card-desc-name">Состояние объекта:</span>
+                            <span class="card-desc-value">{{ i.state_obj }}</span>
+                        </div>
+                        <div class="card-square">
+                            <span class="card-desc-name">Площадь:</span>
+                            <span class="card-desc-value">{{ i.sqr }} кв. м.</span>
+                        </div>
+                        <a href="{% url 'view_obj' i.id %}" class="card-more">
+                            <div>Подробнее ></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

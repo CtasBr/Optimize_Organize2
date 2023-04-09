@@ -1,0 +1,14 @@
+{% extends 'objects/base_obj.html' %}
+{% block header %}
+<div class="content-header">
+    <div class="content-title">Список объектов</div>
+    <div class="content-header-buttons">
+        <a href="{% url 'dashboard' 'objects' %}" class="objects-btn btn ">Объекты</a>
+        <a href="{% url 'dashboard' 'tasks' %}" class="tasks-btn btn">Задачи</a>
+        <a href="{% url 'dashboard' 'stats' %}" class="stats-btn btn content-header-buttons-this-page">Статистика</a>
+    </div>
+</div>
+{% endblock %}
+{% block in_content %}
+
+{% endblock %}

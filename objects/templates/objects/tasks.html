@@ -1,0 +1,34 @@
+{% extends 'objects/base_obj.html' %}
+{% load static %}
+{% block header %}
+    <div class="content-header">
+        <div class="content-title">Список объектов</div>
+        <div class="content-header-buttons">
+            <a href="{% url 'dashboard' 'objects' %}"
+               class="objects-btn btn ">Объекты</a>
+            <a href="{% url 'dashboard' 'tasks' %}" class="tasks-btn btn content-header-buttons-this-page">Задачи</a>
+            <a href="{% url 'dashboard' 'stats' %}" class="stats-btn btn">Статистика</a>
+        </div>
+    </div>
+{% endblock %}
+{% block in_content %}
+
+    <div class="content-tasks">
+    {% for i in tasks %}
+        <div class="card-task">
+            <div class="card-task-container">
+                <div class="card-row-up">
+                    <div class="card-task-title">{{ i.label }}</div>
+                    <a class="card-task-more" href="{% url 'task' i.id %}">Подробнее ></a>
+                </div>
+                <div class="card-row-down">
+                    <div class="card-task-address"># г. {{ i.object.city }} {{ i.object.address }}</div>
+                    <div class="card-task-date"># {{ i.date}}</div>
+                    <div class="card-task-working"># {{ i.user.profile.s_name }} {{ i.user.profile.name }}</div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock %}

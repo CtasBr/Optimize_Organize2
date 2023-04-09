@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<div class="wrapper">
+    {% load static %}
+    <div class="sidebar">
+        <ul class="sidebar-list">
+            <li class="sidebar-login">
+                <div class="sidebar-login-name">Иванов<br>Иван</div>
+                <div class="sidebar-login-role">Исполнитель</div>
+                <a href="#" class="sidebar-login-profile">
+                    <div>В профиль ></div>
+                </a>
+            </li>
+            <a href="{% url 'dashboard' 'objects' %}" class="sidebar-item {% block s_dabo %}{% endblock %}">
+                <li>Дашборд</li>
+            </a>
+            <a href="{% url 'registry' %}?page=1" class="sidebar-item {% block s_r %}{% endblock %}">
+                <li>Общий реестр</li>
+            </a>
+            <a href="{% url 'all_tasks' %}" class="sidebar-item {% block s_ts %}{% endblock %}">
+                <li>Мои задачи</li>
+            </a>
+            <a href="#" class="sidebar-item {% block s_map %}{% endblock %}">
+                <li>Карта объектов</li>
+            </a>
+            <a href="#" class="sidebar-item {% block s_nt %}{% endblock %}">
+                <li>Уведомления</li>
+            </a>
+            <a href="{% url 'logout' %}" class="sidebar-item sidebar-leave">
+                <li># Выход</li>
+            </a>
+        </ul>
+    </div>
+    {% block content %}
+    {% endblock %}
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

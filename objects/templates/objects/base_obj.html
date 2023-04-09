@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block s_dabo %}sidebar-this-page{% endblock %}
+{% block content %}
+
+    <div class="content">
+        <div class="container">
+            <div class="content-block">
+                {% block header %}{% endblock %}
+                {% block in_content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

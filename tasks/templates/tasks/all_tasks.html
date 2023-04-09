@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block s_ts %}sidebar-this-page{% endblock %}
+{% block content %}
+    <div class="content">
+        <div class="container">
+            <div class="content-block-tasks">
+                <div class="content-header">
+                    <div class="content-title">Все мои задачи</div>
+                </div>
+                <div class="content-tasks">
+                    {% for i in tasks %}
+                        <div class="card-task">
+                            <div class="card-task-container">
+                                <div class="card-row-up">
+                                    <div class="card-task-title">{{ i.label }}</div>
+                                    <a class="card-task-more" href="{% url 'task' i.id %}">Подробнее ></a>
+                                </div>
+                                <div class="card-row-down">
+                                    <div class="card-task-address"># г. {{ i.object.city }} {{ i.object.address }}</div>
+                                    <div class="card-task-date"># {{ i.date }}</div>
+                                    <div class="card-task-working">
+                                        # {{ i.user.profile.s_name }} {{ i.user.profile.name }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

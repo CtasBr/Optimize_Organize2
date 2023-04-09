@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content">
+			<div class="container">
+				<div class="content-block">
+					<div class="content-header">
+						<div class="content-title">Данные объекта</div>
+					</div>
+
+					<div class="row">
+						<div class="col-2" style="padding: 0"><img class="object-img" src="{{ obj.photo.url }}"></div>
+						<div class="col-2">
+							<div class="row">
+								<div class="col-3" style="padding-left: 0">
+									<div class="info-field">
+										<div class="info-field-title">Округ</div>
+										<div class="info-field-value">
+											{{ obj.administrate_county }}
+										</div>
+									</div>
+								</div>
+								<div class="col-23" style="padding: 0;">
+									<div class="info-field">
+										<div class="info-field-title">Район</div>
+										<div class="info-field-value">
+                                            {{ obj.area }}
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="info-field">
+								<div class="info-field-title">Адрес</div>
+								<div class="info-field-value">
+									г. {{ obj.city }} ул.<br>{{ obj.address }}
+								</div>
+							</div>
+							<div class="info-field">
+								<div class="info-field-title">Тип объекта</div>
+								<div class="info-field-value">
+									{{ obj.type_obj }}
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-3" style="padding: 0">
+							<div class="info-field">
+								<div class="info-field-title">Площадь</div>
+								<div class="info-field-value">
+                                    {{ obj.sqr }} кв. м.
+								</div>
+							</div>
+						</div>
+						<div class="col-6" style="padding-right: 0;">
+							<div class="info-field">
+								<div class="info-field-title">Состояние объекта</div>
+								<div class="info-field-value">
+									{{ obj.state_obj }}
+								</div>
+							</div>
+						</div>
+						<div class="col-3" style="padding-right: 0;">
+							<div class="info-field">
+								<div class="info-field-title">Проверяющее подразделение</div>
+								<div class="info-field-value">
+                                    {{ obj.check_company }}
+								</div>
+							</div>
+						</div>
+						<div class="col-6" style="padding-right: 0;">
+							<div class="info-field">
+								<div class="info-field-title">Рассматривается в рамках</div>
+								<div class="info-field-value">
+                                    {{ obj.law }}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2" style="padding: 0;">
+							<div class="info-field">
+								<div class="info-field-title">Собственник</div>
+								<div class="info-field-value">
+                                    {{ obj.own }}
+								</div>
+							</div>
+							<div class="info-field">
+								<div class="info-field-title">Фактический пользователь</div>
+								<div class="info-field-value">
+                                    {{ obj.actual_user }}
+								</div>
+							</div>
+							<div class="info-field">
+								<div class="info-field-title">Комметарий к объекту</div>
+								<div class="info-field-value" style="height: 3em">
+									{{ obj.comments }}
+								</div>
+							</div>
+						</div>
+						<div class="col-2">
+							<img class="test-map" src="img/map.png">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+{% endblock %}

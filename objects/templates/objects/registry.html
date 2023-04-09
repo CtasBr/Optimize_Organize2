@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block s_r %}sidebar-this-page{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container">
+            <div class="content-block content-block-registry">
+                <div class="content-header">
+                    <div class="content-header-left registry">
+                        <div class="search-field">
+                            <span>#</span>
+                            <textarea class="search-field-value" placeholder="Поиск по адресу"></textarea>
+                        </div>
+                    </div>
+                    <div class="content-header-center">
+                        <div class="content-title">Список всех объектов для рассмотрения</div>
+                    </div>
+                    <div class="content-header-right registry">
+                        <a href="#" class="filters-btn btn">Фильтры #</a>
+                    </div>
+                </div>
+                <div class="content-objects content-objects-registry">
+                    {% for i in page_obj %}
+                    <div class="col-3">
+                        <div class="card">
+                            <img class="card-img" src="img/object.png">
+                            <div class="card-container">
+                                <div class="card-date card-date-red">{{ i.date }}</div>
+                                <div class="card-title">г. {{ i.city }} {{ i.address }}</div>
+                                <div class="card-type">
+                                    <span class="card-desc-name">Тип:</span>
+                                    <span class="card-desc-value">{{ i.type_obj }}</span>
+                                </div>
+                                <div class="card-state">
+                                    <span class="card-desc-name">Состояние объекта:</span>
+                                    <span class="card-desc-value">{{ i.state_obj }}</span>
+                                </div>
+                                <div class="card-square">
+                                    <span class="card-desc-name">Площадь:</span>
+                                    <span class="card-desc-value">{{ i.sqr }} кв. м.</span>
+                                </div>
+                                <a href="{% url 'view_obj' i.id %}" class="card-more">
+                                    <div>Подробнее ></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="content-pagination">
+                <div class="pagination-wrapper">
+                    {% if page_obj.has_previous %}
+                        <a href="{% url 'registry' %}?page={{ page_obj.previous_page_number }}"
+                           class="content-pagination-left"><--</a>
+                    {% endif %}
+                    <a class="content-pagination-number content-pagination-number-this-page">{{ page_obj.number }}</a>
+                    {% if page_obj.has_next %}
+                        <a href="{% url 'registry' %}?page={{ page_obj.next_page_number }}"
+                           class="content-pagination-number">{{ page_obj.next_page_number }}</a>
+                    {% endif %}
+                    {% if page_obj.has_next %}
+                        <a href="{% url 'registry' %}?page={{ page_obj.next_page_number }}"
+                           class="content-pagination-right">--></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

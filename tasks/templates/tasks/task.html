@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="content">
+        <div class="container">
+            <div class="content-block content-card-task-block">
+                <div class="content-header-card-task">
+                    <div class="content-title">{{ task.label }}</div>
+                    <div class="row">
+                        <div class="card-task-address"># г. {{ task.object.city }} {{ task.object.address}}</div>
+                        <div class="card-task-date"># {{ task.date}}</div>
+                        <div class="card-task-working"># {{ task.user.s_name }} {{ task.user.name }}</div>
+                    </div>
+                </div>
+                <div class="row card-description">
+                    <div class="card-task-info-title">Описание задачи</div>
+                    <div class="card-task-desc">
+                        {{ task.task }}
+                    </div>
+                </div>
+                <form id="task-form" method="post">
+                    <div class="row">
+                        <div class="col-23" style="padding-left: 0;">
+                            <legend class="card-task-info-title">Комментарий</legend>
+                            <textarea class="card-task-comment-value" type="text" name="comment"
+                                      placeholder="Добавить комментарий"></textarea>
+                        </div>
+                        <div class="col-3" style="padding-right: 0;">
+                            <label class="input-file">
+                                <legend class="card-task-info-title">Материалы</legend>
+                                <input class="card-task-files-value" type="file" name="file">
+                                <div># Фото</div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <a class="card-task-send" href="#" onclick="document.getElementById('task-form').submit()">Отправить
+                            ></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
