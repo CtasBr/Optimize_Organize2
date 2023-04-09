@@ -23,5 +23,5 @@ class ProfileForm(forms.ModelForm):
 
 
 class UserLoginForm(AuthenticationForm):
-    username = forms.CharField(label='Username', widget=forms.TextInput(attrs={'class': 'login-field'}))
-    password = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'password-field'}))
+    username = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'login-field', 'placeholder': 'Логин'}))
+    password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'password-field', 'placeholder': 'Пароль'}))
